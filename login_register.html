@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Register</title>
+    <script>
+        // Function to toggle the visibility of the email or phone field
+        function toggleEmailOrPhoneField() {
+            const registerRadio = document.getElementById("register");
+            const emailOrPhoneField = document.getElementById("emailOrPhoneField");
+
+            if (registerRadio.checked) {
+                emailOrPhoneField.style.display = "block";
+                document.getElementById("emailOrPhone").required = true;
+            } else {
+                emailOrPhoneField.style.display = "none";
+            }
+        }
+
+        function forgotPassword(){
+            console.log("inside forgotpassword");
+            document.getElementById("password").required = false;
+           
+            document.getElementById("submitForm").action = "/forgot_password";
+            
+            document.getElementById("submitForm").submit();
+        }
+        // Attach event listeners on page load
+        window.onload = function() {
+            const loginRadio = document.getElementById("login");
+            const registerRadio = document.getElementById("register");
+
+            loginRadio.addEventListener("change", toggleEmailOrPhoneField);
+            registerRadio.addEventListener("change", toggleEmailOrPhoneField);
+
+            // Initialize the state based on the default selected option
+            toggleEmailOrPhoneField();
+        };
+    </script>
+</head>
+<body>
+    <h1>Login or Register</h1>
+    <form id="submitForm" method="POST" action="/login_register">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Radio buttons for Login or Register -->
+        <input type="radio" id="login" name="action" value="Login" checked>
+        <label for="login">Login</label><br>
+        <input type="radio" id="register" name="action" value="Register">
+        <label for="register">Register</label><br><br>
+
+        <!-- Field for email or phone (initially hidden) -->
+        <div id="emailOrPhoneField" style="display: none;">
+            <label for="emailOrPhone">Email or Phone:</label>
+            <input type="text" id="emailOrPhone" name="emailOrPhone"><br><br>
+        </div>
+
+        <button class="btn btn-primary" id="summitbutton" type="submit">Submit</button>
+        
+    </form>
+    <br>
+    <a href="{{ url_for('forgot_password') }}">Forgot Password?</a>
+  <!-- <a href="javascript:forgotPassword();">Forgot Password?</a> -->
+</body>
+</html>

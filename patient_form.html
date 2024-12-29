@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <script>
+        // Function to toggle visibility of the explanation field based on the cardiovascular disease question
+        function toggleCardioExplanation() {
+            const cardioSelect = document.getElementById('cardiovascular');
+            const explanationDiv = document.getElementById('cardioExplanation');
+            if (cardioSelect.value === 'yes') {
+                explanationDiv.style.display = "block";
+                explanationDiv.required = true;
+            } else {
+                explanationDiv.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Patient Form</h1>
+    <form method="POST" action="/patient" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+        
+      <!--  <label for="medical_condition">Medical Condition:</label>
+        <input type="text" id="medical_condition" name="medical_condition" required><br><br> -->
+
+        <label for="ecg_image">Upload ECG Image:</label>
+        <input type="file" id="ecg_image" name="ecg_image" accept="image/*" required><br><br>
+
+
+        <div id="cardioExplanationchoice">
+            <label for="commentchoice">Do you want to add a comment</label>
+            <select id="cardiovascular" name="cardiovascular" onchange="toggleCardioExplanation()">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            </div>
+            <div id="cardioExplanation" style="display: none;">
+                <label for="comment">Please explain your condition:</label>
+                <textarea id="medical_condition" name="medical_condition" rows="4" placeholder="Provide additional details if any."></textarea>
+            </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+

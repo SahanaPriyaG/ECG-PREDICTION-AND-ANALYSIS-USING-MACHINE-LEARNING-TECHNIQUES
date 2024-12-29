@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the ECG Diagnosis Portal</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('login_register') }}">Login</a></li>
+            <li><a href="{{ url_for('patient_form') }}">Submit Patient Data</a></li>
+            <li><a href="{{ url_for('patient_history') }}">Patient History</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>About</h2>
+            <p>This portal helps healthcare professionals analyze ECG data and store patient records efficiently. Log in to start using the system.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 ECG Diagnosis Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Flask
+SQLAlchemy
+Werkzeug
+torch
+torchvision
+Pillow
+

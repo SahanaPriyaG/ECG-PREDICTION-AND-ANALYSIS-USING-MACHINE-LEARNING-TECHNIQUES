@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient History</title>
+</head>
+<body>
+    <h1>Patient History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Medical Condition</th>
+                <th>ECG Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in history %}
+            <tr>
+                <td>{{ record[1] }}</td> <!-- Patient's name -->
+                <td>{{ record[2] }}</td> <!-- Age -->
+                <td>{{ record[3] }}</td> <!-- Medical condition -->
+                <td><img src="{{ url_for('static', filename=record[4]) }}" alt="ECG Image" width="100"></td> <!-- ECG image -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('patient_form') }}">Add New Record</a>
+</body>
+</html>

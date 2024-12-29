@@ -1,0 +1,33 @@
+CREATE DATABASE ECGWEBDB;
+USE ECGWEBDB;
+SELECT user, host FROM mysql.user;
+
+
+CREATE USER 'pooja'@'localhost' IDENTIFIED BY 'Pooja@123';
+
+
+GRANT ALL PRIVILEGES ON ECGWEBDB.* TO 'pooja'@'localhost';
+FLUSH PRIVILEGES;
+
+SHOW GRANTS FOR 'pooja'@'localhost';
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email_or_phone VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS otp (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    otp VARCHAR(6),
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS patients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    age INT,
+    medical_condition VARCHAR(255),
+    image_path VARCHAR(255)
+);

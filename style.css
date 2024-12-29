@@ -1,0 +1,130 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa; /* Soft pastel background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container for Content */
+.container {
+    background-color: #ffffff; /* White background for forms */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Heading Styling */
+h1, h2 {
+    color: #4a90e2; /* Mild blue for headings */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #666666; /* Subtle gray */
+    text-align: left;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4a90e2; /* Blue border on focus */
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #4caf50; /* Soft green */
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #43a047; /* Darker green on hover */
+}
+
+/* Links */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #0066cc;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Icon Styling */
+.icon {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    input, select, textarea {
+        font-size: 13px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Generate OTP</title>
+</head>
+<body>
+    <h1>Generate OTP</h1>
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% elif message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="contact">Enter Email or Phone:</label>
+        <input type="text" id="contact" name="contact" required>
+        <button type="submit">Generate OTP</button>
+    </form>
+</body>
+</html>
